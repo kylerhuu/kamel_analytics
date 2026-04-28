@@ -60,7 +60,18 @@ export default function Home() {
 
       <section className="mt-8">
         <h2 className="text-xl font-semibold">Analytics</h2>
-        <p className="mt-2">Total Events: {events.length}</p>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg border p-4">
+            <p className="text-sm text-gray-500">Total Events</p>
+            <p className="text-2xl font-bold">{events.length}</p>
+          </div>
+          {Object.entries(eventCounts).map(([name, count]) => (
+            <div key={name} className="rounded-lg border p-4">
+              <p className="text-sm text-gray-500">{name}</p>
+              <p className="text-2xl font-bold">{count}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="mt-8">
