@@ -39,13 +39,13 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50 p-8">
-      <h1 className="text-3xl font-bold">Kamel Analytics Dashboard</h1>
+      <h1 className="text-3xl font-bold text-gray-900">Kamel Analytics Dashboard</h1>
       <p className="mt-2 text-gray-600">
         A event collection and analytics Dashboard
       </p>
 
       <section className="mt-8">
-        <h2 className="text-xl font-semibold">Event Collector</h2>
+        <h2 className="text-xl font-semibold text-gray-800">Event Collector</h2>
 
         <div className = "mt-4 flex gap-3">
           <button
@@ -72,27 +72,27 @@ export default function Home() {
       </section>
 
       <section className="mt-8">
-        <h2 className="text-xl font-semibold">Analytics</h2>
+        <h2 className="text-xl font-semibold text-gray-800">Analytics</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <div className="ounded-xl bg-indigo-600 px-4 py-2 text-white shadow-sm hover:bg-indigo-700">
             <p className="text-sm text-gray-500">Total Events</p>
-            <p className="text-2xl font-bold">{events.length}</p>
+            <p className="text-3xl font-bold text-gray-900">{events.length}</p>
           </div>
           {Object.entries(eventCounts).map(([name, count]) => (
             <div key={name} className="ounded-xl bg-indigo-600 px-4 py-2 text-white shadow-sm hover:bg-indigo-700">
               <p className="text-sm text-gray-500">{name}</p>
-              <p className="text-2xl font-bold">{count}</p>
+              <p className="text-3xl font-bold text-gray-900">{count}</p>
             </div>
           ))}
           <div className="ounded-xl bg-indigo-600 px-4 py-2 text-white shadow-sm hover:bg-indigo-700">
             <p className="text-sm text-gray-500">Top Page</p>
-            <p className="text-2xl font-bold">{topPage}</p>
+            <p className="text-3xl font-bold text-gray-900">{topPage}</p>
           </div>
         </div>
       </section>
 
       <section className="mt-8">
-        <h2 className="text-xl font-semibold">Events by Type</h2>
+        <h2 className="text-xl font-semibold text-gray-800">Events by Type</h2>
         <div className="mt-4 h-72 rounded-lg border p-4 shadow-sm">
             {chartData.length > 0 ? (
               <ResponsiveContainer width = "100%" height = "100%">
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       <section className="mt-8">
-        <h2 className="text-xl font-semibold"> Recent Events</h2>
+        <h2 className="text-xl font-semibold text-gray-800"> Recent Events</h2>
         <div className="mt-4 overflow-hidden rounded-lg border">
           <table className="w-full text-left text-sm">
             <thead className="bg-gray-100">
