@@ -18,6 +18,12 @@ export default function Home() {
     addEvent(newEvent);
     setEvents([...getEvents()]);
   }
+
+  const eventCounts = events.reduce<Record<string, number>>((acc, event) => {
+    acc[event.name] = (acc[event.name] || 0) + 1;
+    return acc;
+  }, {});
+
   return (
     <main className="min-h-screen p-8">
       <h1 className="text-3xl font-bold">Kamel Analytics Dashboard</h1>
