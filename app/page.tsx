@@ -74,17 +74,17 @@ export default function Home() {
       <section className="mt-8">
         <h2 className="text-xl font-semibold">Analytics</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
-          <div className="rounded-lg border p-4">
+          <div className="ounded-xl bg-indigo-600 px-4 py-2 text-white shadow-sm hover:bg-indigo-700">
             <p className="text-sm text-gray-500">Total Events</p>
             <p className="text-2xl font-bold">{events.length}</p>
           </div>
           {Object.entries(eventCounts).map(([name, count]) => (
-            <div key={name} className="rounded-lg border p-4">
+            <div key={name} className="ounded-xl bg-indigo-600 px-4 py-2 text-white shadow-sm hover:bg-indigo-700">
               <p className="text-sm text-gray-500">{name}</p>
               <p className="text-2xl font-bold">{count}</p>
             </div>
           ))}
-          <div className="rounded-lg border p-4">
+          <div className="ounded-xl bg-indigo-600 px-4 py-2 text-white shadow-sm hover:bg-indigo-700">
             <p className="text-sm text-gray-500">Top Page</p>
             <p className="text-2xl font-bold">{topPage}</p>
           </div>
