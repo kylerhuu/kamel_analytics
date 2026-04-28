@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { addEvent, getEvents, AnalyticsEvent } from "../lib/events";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,} from "recharts";
 
 export default function Home() {
   const [events, setEvents] = useState<AnalyticsEvent[]>(getEvents());
@@ -23,6 +24,11 @@ export default function Home() {
     acc[event.name] = (acc[event.name] || 0) + 1;
     return acc;
   }, {});
+
+  const chartData = Object.entries(eventCounts).map(([name, count])=> ({
+    name,
+    count,
+  }));
 
   return (
     <main className="min-h-screen p-8">
@@ -72,6 +78,24 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mt-8">
+        <h2 className="text-xl font-semibold">Events by Type</h2>
+        <div className="mt-4 h-72 rounded-lg border p-4">
+            {chartData.length > 0 ? (
+              <ResponsiveContainer width = "100%" height = "100%">
+                <BarChart data = {chartData}>
+                  <XAxis dataKey = "name" />
+                  <YAxis allowDecimals={false} />
+                  <Tooltip />
+                  <Bar dataKey="count" />
+                </BarChart>
+              </ResponsiveContainer>
+            ): (
+              <p className="text-gray-500">No events yet. Track an event to see analytics.</p>
+            )}
+          </div> 
       </section>
 
       <section className="mt-8">
