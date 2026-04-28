@@ -111,15 +111,36 @@ export default function Home() {
 
       <section className="mt-8">
         <h2 className="text-xl font-semibold"> Recent Events</h2>
-
-        <ul className="mt-4 space-y-2">
-          {events.map((event) => (
-            <li key={event.id} className="rounded-lg border p-3">
-              <p className="font-medium">{event.name}</p>
-              <p className="text-sm text-gray-500">{event.timestamp}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-4 overflow-hidden rounded-lg border">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="p-3">Event</th>
+                <th className="p-3">Page</th>
+                <th className="p-3">User</th>
+                <th className="p-3">Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+              {events.length > 0 ? (
+                events.map((event)=> (
+                  <tr key={event.id} className="border-t">
+                    <td className="p-3 font-medium">{event.name}</td>
+                    <td className="p-3">{event.page}</td>
+                    <td className="p-3">{event.userId}</td>
+                    <td className="p-3 text-gray-500">{event.timestamp}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className="p-3 text-gray-500" colSpan={4}>
+                    No events yet. Track an event to visualize it here.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
 
     </main>
