@@ -25,6 +25,13 @@ export default function Home() {
     return acc;
   }, {});
 
+  const pageCounts = events.reduce<Record<string, number>>((acc, event) => {
+    acc[event.page] = (acc[event.page] || 0) + 1;
+    return acc;
+  }, {})
+
+  const topPage = Object.entries(pageCounts).sort((a, b)=> b[1]-a[1])[0]?.[0] || "No data yet";
+
   const chartData = Object.entries(eventCounts).map(([name, count])=> ({
     name,
     count,
@@ -77,6 +84,10 @@ export default function Home() {
               <p className="text-2xl font-bold">{count}</p>
             </div>
           ))}
+          <div className="rounded-lg border p-4">
+            <p className="text-sm text-gray-500">Top Page</p>
+            <p className="text-2xl font-bold">{topPage}</p>
+          </div>
         </div>
       </section>
 
