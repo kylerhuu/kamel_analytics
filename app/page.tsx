@@ -93,14 +93,14 @@ export default function Home() {
 
       <section className="mt-8">
         <h2 className="text-xl font-semibold">Events by Type</h2>
-        <div className="mt-4 h-72 rounded-lg border p-4">
+        <div className="mt-4 h-72 rounded-lg border p-4 shadow-sm">
             {chartData.length > 0 ? (
               <ResponsiveContainer width = "100%" height = "100%">
                 <BarChart data = {chartData}>
                   <XAxis dataKey = "name" />
                   <YAxis allowDecimals={false} />
                   <Tooltip />
-                  <Bar dataKey="count" />
+                  <Bar dataKey="count" fill="#e14949ff" radius={[8,8,0,0]} />
                 </BarChart>
               </ResponsiveContainer>
             ): (
