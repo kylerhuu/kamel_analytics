@@ -7,11 +7,11 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,} from "recha
 export default function Home() {
   const [events, setEvents] = useState<AnalyticsEvent[]>(getEvents());
   
-  function handleAddEvent(name: string) {
+  function handleAddEvent(name: string, page:string) {
     const newEvent: AnalyticsEvent = {
       id: crypto.randomUUID(),
-      name:name,
-      page: "/dashboard",
+      name,
+      page,
       userId: "user_1",
       timestamp: new Date().toISOString(),
     };
@@ -42,21 +42,21 @@ export default function Home() {
 
         <div className = "mt-4 flex gap-3">
           <button
-            onClick={() => handleAddEvent("ride_booked")}
+            onClick={() => handleAddEvent("ride_booked", "/booking")}
             className="rounded-lg bg-black px-4 py-2 text-white"
           >
             Track Ride Booked
           </button>
 
           <button
-            onClick={() => handleAddEvent("search")}
+            onClick={() => handleAddEvent("search", "/search")}
             className="rounded-lg bg-black px-4 py-2 text-white"
           >
             Track Search
           </button>
 
           <button
-            onClick={() => handleAddEvent("payment_started")}
+            onClick={() => handleAddEvent("payment_started", "/chekout")}
             className="rounded-lg bg-black px-4 py-2 text-white"
           >
             Track Payment Started
